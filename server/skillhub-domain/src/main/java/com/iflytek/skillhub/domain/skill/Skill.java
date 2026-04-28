@@ -7,6 +7,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "skill")
+@EntityListeners(com.iflytek.skillhub.domain.skill.listener.SkillIndexingListener.class)
 public class Skill {
 
     @Id

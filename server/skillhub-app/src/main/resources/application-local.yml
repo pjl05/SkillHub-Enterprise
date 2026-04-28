@@ -24,9 +24,25 @@ spring:
             client-secret: ${OAUTH2_GITHUB_CLIENT_SECRET:local-placeholder}
 
 skillhub:
+  search:
+    semantic:
+      enabled: true
+      weight: 0.35
+      candidate-multiplier: 8
+      max-candidates: 120
   auth:
     mock:
       enabled: true
+  embedding:
+    model: ${EMBEDDING_MODEL:minimax}
+    minimax:
+      api-key: ${MINIMAX_API_KEY:}
+      base-url: ${MINIMAX_API_BASE_URL:https://api.minimaxi.com/v1}
+      model: emb-0
+      dimensions: 1024
+    local:
+      model-path: ${LOCAL_EMBEDDING_MODEL_PATH:}
+      batch-size: 32
   notification:
     cleanup:
       read-retention-days: 30
